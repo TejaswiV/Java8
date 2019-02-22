@@ -8,14 +8,14 @@ package com.java8.lambda.interfaces;
 @FunctionalInterface
 public interface Interface1 {
 
-	public void method1();
+	public void abstractMethod();
 
-	default void method2() {
-
+	default void defaultMethod() {
+		System.out.println("In default method of Interface1");
 	}
 
-	static void method3() {
-
+	static void staticMethod() {
+		System.out.println("In static menthod of interface1");
 	}
 }
 
@@ -47,7 +47,7 @@ interface Interface3 extends Interface1{
 @FunctionalInterface
 interface Interface4 extends Interface1{
 	
-	public void method1();
+	public void abstractMethod();
 }
 
 
