@@ -23,49 +23,25 @@ public class BiFunctionalInterfaces {
 		BiFunction<Integer, Integer, Integer> f = (a, b) -> (a * b);
 		System.out.println(f.apply(3, 4));
 		
-		//Create employee object with BiFunction
-		List<Employee> list = new ArrayList<Employee>();
-		BiFunction<Integer, String, Employee> f2 = (id, name) -> new Employee(id, name);
-		list.add(f2.apply(1, "David"));
-		list.add(f2.apply(2, "Hazelwood"));
-		for (Employee emp : list) {
-			System.out.println(emp);
-		}
-		
 		// BiConsumer
 		BiConsumer<String, String> c = (s1,s2) -> System.out.println(s1.concat(s2));
 		c.accept("Java 8 ", "Features");
 		
+		//Increment employee salary with BiFunction and BiConsumer
+		List<Employee> list = new ArrayList<Employee>();
+		BiFunction<Integer, Double, Employee> f2 = (id, salary) -> new Employee(id, salary);
+		list.add(f2.apply(1, 1000d));
+		list.add(f2.apply(2, 2500d));
+		
+		BiConsumer<Employee, Double> c2 = (emp, increment) -> emp.setSalary( emp.getSalary() + increment);
+		
+		for (Employee emp : list) {
+			c2.accept(emp, 200d);
+			System.out.println(emp);
+		}
+		
+		
+		
 	}
 
-}
-
-
-class Employee {
-	private int id;
-	private String name;
-	
-	public Employee(int id, String name) {
-		this.id = id;
-		this.name = name;
-	}
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	@Override
-	public String toString() {
-		return "id: "+id+" Name: "+name;
-	}
-	
 }
