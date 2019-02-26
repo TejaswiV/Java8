@@ -40,8 +40,6 @@ public class BiFunctionalInterfaces {
 			System.out.println(emp);
 		}
 		
-		
-		
 	}
 
 }
