@@ -58,9 +58,10 @@ public class MapFilterReduce {
 		
 		// Stream findFirst()
 		
-		System.out.println("findFirst() of Stream "+list.stream()
+		System.out.print("findFirst() of Stream ");
+		list.stream()
 			.sorted((e1,e2) -> e1.getSalary() > e2.getSalary()? 1 :(e1.getSalary() < e2.getSalary())? -1 : 0)
-			.findFirst().get());
+			.findFirst().ifPresent(System.out::println);
 		
 		
 	
