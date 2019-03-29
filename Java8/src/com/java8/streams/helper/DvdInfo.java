@@ -33,7 +33,7 @@ public class DvdInfo {
 	
 	@Override
 	public String toString() {		
-		return  title +" / "+genre+" / "+leadActor;
+		return  title +" - "+genre+" - "+leadActor;
 	}
 	
 
